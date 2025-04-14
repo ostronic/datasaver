@@ -1,2 +1,20 @@
 # datasaver
 datasaver - reduces the MTU(that is the MSS value plus header) randomly, to minimize the data consumed by scavenging websites
+
+#Synopsis:   
+  #
+    sudo python3 parrotLinuxv2.py on     
+  To turn on the datsaver which randomly changes the MTU value for all Network interfaces(wloX or tunX) in range (1000-1399), and
+  #
+    sudo python3 parrotLinuxv2.py off   
+  To turn off the datasaver and return it to the normal MTU size(1500)
+
+Date:   2025-04-13
+
+#:  Version:    2.0
+
+#:  Author: ostronics {fg_daemon}
+
+#:  Mail(Buy me a coffee):   zagzag.passinbox.com
+
+#:  This project is open for collaboration, for implementation in PC just as the datasaver button is on the Android mobile devices.
