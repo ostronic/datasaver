@@ -12,6 +12,8 @@
 #:  Mail:   zagzag.passinbox.com
 #:  Update: Added datasaver to VPN devices(tun0).
 
+from colorama import Fore, Back, Style
+
 import os
 import random
 import subprocess
@@ -19,8 +21,21 @@ import sys
 import time
 
 if not 'SUDO_UID' in os.environ.keys():
-    print('You must run this program with sudo')
+    print(Style.DIM + 'You must run this program with sudo')
     exit()
+
+text = Fore.CYAN + r"""
+    ░█████╗░░██████╗████████╗██████╗░░█████╗░███╗░░██╗██╗░█████╗░░██████╗
+    ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗████╗░██║██║██╔══██╗██╔════╝
+    ██║░░██║╚█████╗░░░░██║░░░██████╔╝██║░░██║██╔██╗██║██║██║░░╚═╝╚█████╗░
+    ██║░░██║░╚═══██╗░░░██║░░░██╔══██╗██║░░██║██║╚████║██║██║░░██╗░╚═══██╗
+    ╚█████╔╝██████╔╝░░░██║░░░██║░░██║╚█████╔╝██║░╚███║██║╚█████╔╝██████╔╝
+    ░╚════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░╚════╝░╚═════╝░
+    \n****************************************************************
+    \n* Copyright of ostronics(fg_daemon) 2025                       *
+    \n* Buy me a coffe(Mail):   zagzag.drank337@passinbox.com        *
+    \n****************************************************************
+        """
 
 rand = random.randrange(1000, 1399)
 
@@ -50,17 +65,21 @@ def off():
         sys.exit(2)
 
 if __name__ == '__main__':
-    usage = '''Usage:
-                    sudo python3 parrotLinuxv2.py on # To power on the datasaver and choose a random MTU size range(1000-1400)\
-            \nor
-            \n      sudo python3 parrotLinuxv2.py off # To power off the datasaver, and return the MTU size to 1500(default) value'''
+    turn_on = Fore.WHITE + 'sudo python3 parrotLinuxv2.py on # To power on the datasaver and choose a random MTU size range(1000-1400)'
+    turn_off = Fore.RED + 'sudo python3 parrotLinuxv2.py off # To power off the datasaver, and return the MTU size to 1500(default) value'
+
+    usage = 'Usage: \n\t' + turn_on +'\n\t'+turn_off+'\r'
 
     try:
         value = str(sys.argv[1])
+        if value == '-h' or '--help' or 'help':
+            print(text + '\n',usage)
+            time.sleep(10)
+            os.system('clear')
         if value == 'on':
             on()
         if value == 'off':
             off()
     except:
-        print(usage)
+        print(text + '\n',usage)
         sys.exit(3)
