@@ -1,6 +1,24 @@
 # datasaver
 datasaver - reduces the MTU(that is the MSS value plus header) randomly, to minimize the data consumed by scavenging websites
 
+    ░█████╗░░██████╗████████╗██████╗░░█████╗░███╗░░██╗██╗░█████╗░░██████╗
+    ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗████╗░██║██║██╔══██╗██╔════╝
+    ██║░░██║╚█████╗░░░░██║░░░██████╔╝██║░░██║██╔██╗██║██║██║░░╚═╝╚█████╗░
+    ██║░░██║░╚═══██╗░░░██║░░░██╔══██╗██║░░██║██║╚████║██║██║░░██╗░╚═══██╗
+    ╚█████╔╝██████╔╝░░░██║░░░██║░░██║╚█████╔╝██║░╚███║██║╚█████╔╝██████╔╝
+    ░╚════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░╚════╝░╚═════╝░
+    \n****************************************************************
+    \n* Copyright of ostronics(fg_daemon) 2025                       *
+    \n* Buy me a coffe(Mail):   zagzag.drank337@passinbox.com        *
+    \n****************************************************************
+        
+ Usage: 
+	
+ sudo python3 parrotLinuxv2.py on # To power on the datasaver and choose a random MTU size range(1000-1400)
+ 
+ sudo python3 parrotLinuxv2.py off # To power off the datasaver, and return the MTU size to 1500(default) value
+
+
 #Synopsis:   
   #
     sudo python3 parrotLinuxv2.py -h
