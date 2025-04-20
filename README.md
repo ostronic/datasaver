@@ -46,3 +46,5 @@ Date:   2025-04-13
 #:  Mail(Buy me a coffee):  zagzag.drank337@passinbox.com
 
 #:  This project is open for collaboration, for implementation in PC just as the datasaver button is on the Android mobile devices.
+#	NOTE: 	
+	Comment out the tun0 field in the code, and do not use the data saver on VPN devices 'tunX' if you do not have strong internet connection.
