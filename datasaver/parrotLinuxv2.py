@@ -11,6 +11,7 @@
 #:  Author: ostronics {fg_daemon}
 #:  Mail:   zagzag.passinbox.com
 #:  Update: Added datasaver to VPN devices(tun0).
+#: Shout Agba Developer! :) 
 
 from colorama import Fore, Back, Style
 
@@ -33,7 +34,7 @@ text = Fore.CYAN + r"""
     ░╚════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░╚════╝░╚═════╝░
     \n****************************************************************
     \n* Copyright of ostronics(fg_daemon) 2025                       *
-    \n* Buy me a coffe(Mail):   zagzag.drank337@passinbox.com        *
+    \n* Buy me a coffee(Mail):   zagzag.drank337@passinbox.com       *
     \n****************************************************************
         """
 
@@ -45,7 +46,7 @@ def on():
         subprocess.run(['ip', 'link', 'set', 'wlo1', 'mtu', f'{rand}'])
         subprocess.run(['ip', 'link', 'set', 'tun0', 'mtu', f'{rand}'])
         subprocess.run(['ip', 'link', 'set', 'wlo1', 'up']) 
-        print('\nNew MTU value is now {}'.format(rand))
+        print('\n[-] New MTU value is now {}'.format(rand))
     except Exception as e:
         print(f'{e}')
         #print("You must run this program with sudo or as root !!!\n sudo python3\'prog%name'")
@@ -55,13 +56,14 @@ def off():
     try:
         subprocess.run(['ip', 'link', 'set', 'wlo1', 'down'])
         subprocess.run(['ip', 'link', 'set', 'wlo1', 'mtu', '1500'])
+        subprocess.run(['ip', 'link', 'set', 'tun0', 'mtu', '1500'])
         subprocess.run(['ip', 'link', 'set', 'wlo1', 'up'])
-        print('\nMTU value is now 1500(default)')
+        print('\n[+] MTU value for all dev. is now 1500(default)')
         subprocess.run(['systemctl', 'restart', 'NetworkManager', 'wpa_supplicant.service'])
         time.sleep(1)
         subprocess.call('clear', shell=True)
     except Exception as e:
-        print(f'{e}')
+        print(f'[*] {e}')
         sys.exit(2)
 
 if __name__ == '__main__':
