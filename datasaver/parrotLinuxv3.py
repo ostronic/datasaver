@@ -6,7 +6,7 @@
 #:                      which randomly changes the MTU value every 600secs
 #:              sudo python3 parrotLinuxv2.py off -   To turn off the data
 #:                              saver and return it to the normal MTU size
-#:  Date:   2025-05-12
+#:  Date:   2025-05-13
 #:  Version:    3
 #:  Author: ostronics {fg_daemon}
 #:  Mail:   zagzag.passinbox.com
@@ -61,19 +61,6 @@ def reg():
         mtu_values[interface] = mtu
         #print("{}:  {}\n".format(interface,mtu))
     return interface, mtu
-    #return f"Interface: {interface}, MTU:   {mtu}\n"
-    #return mtu_values
-
-    # You can now use mtu_values as a dictionary containing all MTU info
-'''
-Using ifconfig for just the MTU values
-rdm = subprocess.run(['ifconfig'], stdout=subprocess.PIPE, text=True)
-        dev1 = re.finditer(r'mtu (\d+)', rdm.stdout, re.MULTILINE)
-        for _ in dev1:
-            dev2 = int(_.group(1))
-            print(f"{dev2}"
-'''
-
 
 def on():
     try:
