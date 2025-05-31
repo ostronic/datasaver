@@ -49,6 +49,4 @@ Date:   2025-04-13 - updated 2025-05-31
 
 #:  Author: ostronics {fg_daemon}
 
-#:  Mail(Buy me a coffee):  zagzag.drank337@passinbox.com
-
-#:  This project is open for collaboration, for implementation on Windows OS PC just as the datasaver button is on the scroll bar on Android mobile devices.
+#:  This project is open for collaboration, for implementation on Windows OS PC: just as the datasaver button is on the scroll bar on Android mobile devices.
