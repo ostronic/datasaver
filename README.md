@@ -23,6 +23,7 @@ F#ck NCC tariff. My data last long than their hair dye.
  sudo python3 parrotLinuxv2.py off # To power off the datasaver
 
 #Synopsis:   
+# Added the netck.py (Network check)function -	checks to see if you have a WiFi/Ethernet connection before initiating the datasaver to the interface
   #
     sudo python3 parrotLinuxv2.py -h
   or
