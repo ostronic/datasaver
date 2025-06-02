@@ -67,7 +67,6 @@ sudo bash install.sh
 ## 🧪 Usage
 Launch the GUI:
 
-#
 ```bash
     datasaver
 ```
@@ -76,3 +75,10 @@ Use the CLI:
 ```bash
     python3 datasaver-cli.py --help
 ```
+
+---
+
+
+## 🧾 License
+This project is licensed under the Apache License 2.0.
+
