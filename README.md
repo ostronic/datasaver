@@ -47,4 +47,14 @@ git clone https://github.com/ostronic/datasaver.git
 cd datasaver/
 pip3 install -r requirements.txt
 sudo bash install.sh
-
+```
+## 📂 Project Structure
+| File/Folder          | Description                              |
+| -------------------- | ---------------------------------------- |
+| `assets/`            | GUI and icon resources                   |
+| `datasaverIcon.html` | Desktop integration (icon & shortcut)    |
+| `install.sh`         | Post-install script for setup            |
+| `lid_monitor.py`     | Handles lid-close event monitoring       |
+| `netck.py`           | Network check and MTU optimization logic |
+| `datasaver-cli.py`   | Command-line interface for datasaver     |
+| `datasaver.py`       | GUI interface launcher                   |
