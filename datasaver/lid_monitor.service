@@ -1,0 +1,14 @@
+## Make It a Background Service
+## Create a systemd unit file /etc/systemd/system/lid-monitor.service:
+
+[Unit]
+Description=Datasaver Lid Monitor
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/datasaver-gui/lid-monitor.py
+Restart=always # or on-failure
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -26,4 +26,4 @@ try:
     print('\nNew MTU value is now {}'.format(rand))
 except Exception as e:
     print(f'{e}')
-    #print("You must run this program with sudo or as root !!!\n sudo python3\'prog%name'")
+    print("You must run this program with sudo or as root !!!\n sudo python3\'prog%name'")

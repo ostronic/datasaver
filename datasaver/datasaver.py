@@ -1,20 +1,14 @@
-#!/bin/ !python
 #!/usr/bin/python3
 #:  Title:  datasaver - reduces the MTU(that is the MSS value plus header)
 #:          randomly, to minimize the data consumed by scavenging websites
-#:  Synopsis:   sudo python3 parrotLinuxv2.py on  -   To turn on the datsaver
+#:  Synopsis:   sudo python3 datasaver.py on  -   To turn on the datsaver
 #:                      which randomly changes the MTU value every 600secs
-#:              sudo python3 parrotLinuxv2.py off -   To turn off the data
+#:              sudo python3 datasaver.py off -   To turn off the data
 #:                              saver and return it to the normal MTU size
 #:  Date:   2025-05-12
-#:  Version:    3 complete
+#:  Version:    3 complete standalone.
 #:  Author: ostronics {fg_daemon}
-#:  Mail:   zagzag.passinbox.com
-#:  Update: Updated the data saver code, to follow the real time mtu value 
-#:          after a change, for all interfaces, and stores the value in a 
-#:          dictionary for future use.
-#:  TODO:   Use the network_func.py to check if Wifi device is available, connected, to prevent Fascad
-#:  TODO:   Make the application model restart the Network service, on detect laptop lid closed and open, on all Linux variant whose network service will be disabled on laptop lid closed
+#:  Mail:   ostronics@proton.me
 
 from collections import deque
 from colorama import Fore, Back, Style
@@ -27,12 +21,16 @@ import subprocess
 import sys
 import time
 
+# Must allow user run the program as sudo 
 if not 'SUDO_UID' in os.environ.keys():
     print(Style.DIM + 'You must run this program with sudo')
     exit()
-if not Netfunc:
+
+# Check to see PC is conected to a network through Ethernet or Wirelessly before starting the datasaver.
+if not Netfunc():
     pass
 
+# Display banner on help argument
 banner = Fore.CYAN + r"""
     ░█████╗░░██████╗████████╗██████╗░░█████╗░███╗░░██╗██╗░█████╗░░██████╗
     ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗████╗░██║██║██╔══██╗██╔════╝
@@ -43,7 +41,6 @@ banner = Fore.CYAN + r"""
     *********************************************************************
     * Copyright of ostronics(fg_daemon) 2025                            *
     * 'What a wonderful world' :)   zagzag.drank337@passinbox.com       *
-    * Baba Blue, Look they shaking hands now :) \)                      *
     *********************************************************************
         """
 turn_on = Fore.WHITE + 'sudo python3 parrotLinuxv2.py on # To power on the datasaver and choose a random MTU size range(1000-1400)'

@@ -1,0 +1,111 @@
+    ░█████╗░░██████╗████████╗██████╗░░█████╗░███╗░░██╗██╗░█████╗░░██████╗
+    ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗████╗░██║██║██╔══██╗██╔════╝
+    ██║░░██║╚█████╗░░░░██║░░░██████╔╝██║░░██║██╔██╗██║██║██║░░╚═╝╚█████╗░
+    ██║░░██║░╚═══██╗░░░██║░░░██╔══██╗██║░░██║██║╚████║██║██║░░██╗░╚═══██╗
+    ╚█████╔╝██████╔╝░░░██║░░░██║░░██║╚█████╔╝██║░╚███║██║╚█████╔╝██████╔╝
+    ░╚════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░╚════╝░╚═════╝░
+    *********************************************************************
+    * Copyright of ostronics(fg_daemon) 2025                            *
+    * 'What a wonderful world' :)   zagzag.drank337@passinbox.com       *
+    * Baba Blue, Look they shaking hands now :) \)                      *
+    *********************************************************************
+   
+   Using the lightest latest python library/module out there, i want you to implement my code(bugfree) to a 'AnonSurf' like application, where i can easily toggle the datasaver on and off(as in the module in the code on() and off(), respectively), allowing pulling from github, and allowing unpacking with a terminal command: yet wanting the app to have the following features:
+   Make the application restart the NetworkManager and wpa_supplicant.service as in my code, on detect laptop lid closed and open, on all Linux variant whose network service will be disabled on laptop lid closed
+   Making the app send notification to the side of the screen when data saver is turned 'on' or 'off',
+   Giving users the option to set the apps shortcut on the top panel of their scren,
+   Allowing users to set a shortcut button to easily power 'on' or 'off' the datasaver application.
+   Performing all this with security of the application in mind.
+
+Now encapsulate all the above in a GUI application.
+
+
+Application Icon:
+Using the image provided as a mockup, make me an animated application icon image, named datasaver, where the www world like character sucks from the straw, and the liquid content in the cup is my data(internet bandwidth)
+
+
+Package: datasaver-cli
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, python3-notify2
+Maintainer: Your Name <your.email@example.com>
+Description: Datasaver CLI tool with notification support
+ Monitors and manages data usage with desktop notifications.
+
+
+✅ Next Steps to Complete This App
+1.) Install required libs:
+
+Command Copy center:
+    pip3 install notify2 pyudev
+
+HEADING:
+2.) Optional Panel Shortcut (Gnome, XFCE, etc.):
+
+    Create a .desktop file in ~/.local/share/applications/.
+
+    Point it to a script that runs datasaver.py on or off.
+
+3.) Add keyboard shortcut:
+
+    Via DE settings: bind custom shortcut to sudo python3 datasaver.py on.
+
+4.) Make GitHub-friendly:
+
+    Include setup.py or a Makefile.
+
+    Use README.md for usage.
+
+    Add postinst.sh to set up autostart, if needed.
+
+
+Here’s a simple, clean install.sh script that:
+
+Clones your Datasaver GUI repo from GitHub.
+
+Installs required dependencies.
+
+Sets up the application with appropriate permissions.
+
+Creates a desktop shortcut.
+
+Make sure to replace the placeholder GitHub URL with your actual repo URL.
+
+Ensure your main GUI script is named datasaver_gui.py.
+
+Create a requirements.txt file in your repo with PyQt5 and any other dependencies.
+
+/opt/datasaver-gui/: main directory for the app
+
+/opt/datasaver-gui/datasaver_gui.py: your main PyQt file
+
+/opt/datasaver-gui/requirements.txt: contains at least PyQt5
+
+🔧 Make It a Background Service
+Create a systemd unit file /etc/systemd/system/lid-monitor.service:
+
+    Commands:
+        sudo systemctl daemon-reexec
+        sudo systemctl enable lid-monitor
+        sudo systemctl start lid-monitor
+
+
+To execute it executable, save it as lid_monitor.sh and run:
+    chmod +x lid_monitor.sh
+    sudo ./lid_monitor.sh
+
+To add tray icon support in a shell script environment, you'll need to use a utility that can create system tray icons—such as yad, zenity, or gtkdialog. Among these, yad (Yet Another Dialog) is the lightest and best suited for a tray-based toggle app.
+
+Here’s how you can integrate tray icon support into your lid_monitor.sh setup using yad:
+
+Install yad if not already installed:
+
+    sudo apt install yad -y
+    
+
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable datasaver.service
+sudo systemctl start datasaver.service
