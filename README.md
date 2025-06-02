@@ -80,7 +80,7 @@ Use the CLI:
 
 
 ## 🧾 License
-This project is licensed under the [![Apache License 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](Apache License 2.0).
+This project is licensed under the [![Apache License 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)].
 
 ---
 
