@@ -81,3 +81,13 @@ Use the CLI:
 
 ## 🧾 License
 This project is licensed under the [![Apache License 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](Apache License 2.0).
+
+---
+
+🙌 Contributing
+Pull requests and suggestions are welcome! If you find a bug or want to help improve this project, feel free to open an issue or PR.
+
+---
+
+✨ Author
+Created with ❤️ by @ostronic
