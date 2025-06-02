@@ -35,7 +35,7 @@ fi
 cat <<EOF > "$DESKTOP_ENTRY"
 [Desktop Entry]
 Name=Datasaver
-Exec=sudo python3 $INSTALL_DIR/$APP_NAME.py
+Exec=python3 $BIN_PATH
 Icon=$ICON_PATH
 Terminal=false
 Type=Application
