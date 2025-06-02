@@ -4,6 +4,17 @@
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
 [![Build](https://img.shields.io/github/actions/workflow/status/ostronic/datasaver/python-app.yml?label=build)](https://github.com/ostronic/datasaver/actions)
 
+    ░█████╗░░██████╗████████╗██████╗░░█████╗░███╗░░██╗██╗░█████╗░░██████╗
+    ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔══██╗████╗░██║██║██╔══██╗██╔════╝
+    ██║░░██║╚█████╗░░░░██║░░░██████╔╝██║░░██║██╔██╗██║██║██║░░╚═╝╚█████╗░
+    ██║░░██║░╚═══██╗░░░██║░░░██╔══██╗██║░░██║██║╚████║██║██║░░██╗░╚═══██╗
+    ╚█████╔╝██████╔╝░░░██║░░░██║░░██║╚█████╔╝██║░╚███║██║╚█████╔╝██████╔╝
+    ░╚════╝░╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░╚════╝░╚═════╝░
+    *********************************************************************
+    * Copyright of ostronics(fg_daemon) 2025                            *
+    * 'What a wonderful world' :)   zagzag.drank337@passinbox.com       *
+    *********************************************************************
+
 **datasaver** is a lightweight Python-based Linux utility to reduce background data usage, optimize MTU/network settings, and improve laptop power efficiency. It includes both CLI and GUI components.
 
 ---
@@ -12,8 +23,6 @@
 
 ![datasaver GUI screenshot](assets/datasaver.png)  
 <sub>_Example of the datasaver GUI interface_</sub>
-
-> 🔧 Don't forget to replace `assets/datasaver.png` with your actual screenshot!
 
 ---
 
@@ -38,3 +47,4 @@ git clone https://github.com/ostronic/datasaver.git
 cd datasaver/
 pip3 install -r requirements.txt
 sudo bash install.sh
+
