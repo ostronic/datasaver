@@ -15,7 +15,9 @@ Either you doing CTF, pentesting, watching Youtube videos, surfing Scavenging we
     *********************************************************************
 
         
-#Usage: 
+#Usage:
+  #
+      cd datasaver/
   #
     sudo python3 datasaver.py <on|off|help>
   or
