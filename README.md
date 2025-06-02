@@ -68,7 +68,7 @@ sudo bash install.sh
 Launch the GUI:
 
 ```bash
-    datasaver
+    sudo python3 datasaver
 ```
 Use the CLI:
 
