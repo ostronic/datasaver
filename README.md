@@ -84,10 +84,10 @@ This project is licensed under the [![Apache License 2.0](https://img.shields.io
 
 ---
 
-🙌 Contributing
+## 🙌 Contributing
 Pull requests and suggestions are welcome! If you find a bug or want to help improve this project, feel free to open an issue or PR.
 
 ---
 
-✨ Author
+## ✨ Author
 Created with ❤️ by @ostronic
