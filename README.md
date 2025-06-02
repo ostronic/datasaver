@@ -48,6 +48,9 @@ cd datasaver/
 pip3 install -r requirements.txt
 sudo bash install.sh
 ```
+
+---
+
 ## 📂 Project Structure
 | File/Folder          | Description                              |
 | -------------------- | ---------------------------------------- |
@@ -58,3 +61,18 @@ sudo bash install.sh
 | `netck.py`           | Network check and MTU optimization logic |
 | `datasaver-cli.py`   | Command-line interface for datasaver     |
 | `datasaver.py`       | GUI interface launcher                   |
+
+---
+
+## 🧪 Usage
+Launch the GUI:
+
+#
+```bash
+    datasaver
+```
+Use the CLI:
+
+```bash
+    python3 datasaver-cli.py --help
+```
