@@ -1,4 +1,0 @@
-colorama
-notify2
-pyudev
-pyqt5
