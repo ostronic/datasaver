@@ -175,7 +175,7 @@ def main():
     Netfunc()
 
     if len(sys.argv) < 2:
-        print("Usage: sudo python3 datasaver.py <on|off>")
+        print("Usage: sudo python3 datasaver.py <on|off|--help>")
         sys.exit(1)
 
     ds = Datasaver()
@@ -185,6 +185,8 @@ def main():
         ds.on()
     elif cmd == "off":
         ds.off()
+    elif cmd == "--help":
+        print("Usage: sudo python3 datasaver.py <on|off>")
     else:
         # Informs user of Unknown command, and exit
         print("Unknown command:", cmd)

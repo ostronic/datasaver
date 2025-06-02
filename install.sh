@@ -35,7 +35,7 @@ fi
 cat <<EOF > "$DESKTOP_ENTRY"
 [Desktop Entry]
 Name=Datasaver
-Exec=python3 $INSTALL_DIR/$APP_NAME.py
+Exec=sudo python3 $INSTALL_DIR/$APP_NAME.py
 Icon=$ICON_PATH
 Terminal=false
 Type=Application
@@ -69,6 +69,6 @@ systemctl enable datasaver-lid.service
 
 # Notify user
 notify-send "Datasaver installed successfully!"
-echo "Datasaver installed successfully. Launch from your applications menu or with: datasaver on|off"
+echo "Datasaver installed successfully. Launch from your applications menu or with: datasaver"
 
 exit 0
