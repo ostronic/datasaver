@@ -44,23 +44,31 @@ Run the following commands to install `datasaver` on a Debian/Ubuntu-based syste
 sudo apt update
 sudo apt install -y python3 python3-pip git
 git clone https://github.com/ostronic/datasaver.git
+```
+### CTRL+t , to go to another terminal window
+```
 cd datasaver/
 pip3 install -r requirements.txt
-sudo bash install.sh
+sudo python3 datasaver.py
+```
+### Or to run CLI version,
+```
+sudo python3 datasaver-cli.py <on|off>
 ```
 
 ---
 
 ## 📂 Project Structure
-| File/Folder          | Description                              |
-| -------------------- | ---------------------------------------- |
-| `assets/`            | GUI and icon resources                   |
-| `datasaverIcon.html` | Desktop integration (icon & shortcut)    |
-| `install.sh`         | Post-install script for setup            |
-| `lid_monitor.py`     | Handles lid-close event monitoring       |
-| `netck.py`           | Network check and MTU optimization logic |
-| `datasaver-cli.py`   | Command-line interface for datasaver     |
-| `datasaver.py`       | GUI interface launcher                   |
+| File/Folder          | Description                                  |
+| -------------------- | ---------------------------------------------|
+| `assets/`            | GUI and icon resources                       |
+| `datasaverIcon.html` | Desktop integration (icon & shortcut)        |
+| `requirements.txt`   | Installs prerequisites for runtime           |
+| `install.sh`         | Post-install script for setup(In production) |
+| `lid_monitor.py`     | Handles lid-close event monitoring           |
+| `netck.py`           | Network check and MTU optimization logic     |
+| `datasaver-cli.py`   | Command-line interface for datasaver         |
+| `datasaver.py`       | GUI interface launcher                       |
 
 ---
 
