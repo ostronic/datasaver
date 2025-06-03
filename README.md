@@ -45,13 +45,13 @@ sudo apt update
 sudo apt install -y python3 python3-pip git
 git clone https://github.com/ostronic/datasaver.git
 ```
-### CTRL+t , to go to another terminal window
+CTRL+t , to go to another terminal window
 ```
 cd datasaver/
 pip3 install -r requirements.txt
 sudo python3 datasaver.py
 ```
-### Or to run CLI version,
+To run CLI version,
 ```
 sudo python3 datasaver-cli.py <on|off>
 ```
