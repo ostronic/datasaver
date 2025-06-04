@@ -29,9 +29,9 @@
 ## ⚡ Features
 
 - 🧠 Smart MTU/network tuning
-- 💻 GUI interface for easy management
+- 💻 GUI interface for easy management (Taskbar icon and management,Hide button)
 - 🔌 Lid-close detection with automatic actions
-- 🔧 CLI for scripting and automation
+- 🔧 CLI for scripting and automation(Allow logging /var/log/datasaver_mtu.log)
 - 📡 Optimized for low-data usage environments
 
 ---
@@ -62,9 +62,11 @@ sudo python3 datasaver-cli.py <on|off>
 | File/Folder          | Description                                  |
 | -------------------- | ---------------------------------------------|
 | `assets/`            | GUI and icon resources                       |
+| `config`             | Configuration/ runtime files                 |
 | `datasaverIcon.html` | Desktop integration (icon & shortcut)        |
 | `requirements.txt`   | Installs prerequisites for runtime           |
 | `install.sh`         | Post-install script for setup(In production) |
+| `uninstall.sh`       | Uninstall script for package removal         |
 | `lid_monitor.py`     | Handles lid-close event monitoring           |
 | `netck.py`           | Network check and MTU optimization logic     |
 | `datasaver-cli.py`   | Command-line interface for datasaver         |
@@ -76,7 +78,7 @@ sudo python3 datasaver-cli.py <on|off>
 Launch the GUI:
 
 ```bash
-    sudo python3 datasaver
+    datasaver
 ```
 Use the CLI:
 
