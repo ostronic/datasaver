@@ -23,10 +23,14 @@ mkdir -p "$INSTALL_DIR"
 cp -r ./* "$INSTALL_DIR"
 chmod +x "$INSTALL_DIR/$APP_NAME.py"
 
-# Create symlink for CLI access
+# Create symlink for CLI access and Export GUI session for root
 cat <<EOF > "$BIN_PATH"
 #!/bin/bash
-python3 $INSTALL_DIR/$APP_NAME.py "$@"
+# Export GUI session for root
+XUSER=$(logname)
+export DISPLAY=:0
+export XAUTHORITY="/home/$XUSER/.Xauthority"
+exec pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /usr/bin/python3 $INSTALL_DIR/$APP_NAME.py "$@"
 EOF
 
 chmod +x "$BIN_PATH"
@@ -46,7 +50,7 @@ fi
 cat <<EOF > "$DESKTOP_ENTRY"
 [Desktop Entry]
 Name=Datasaver
-Exec=pkexec /usr/bin/python3 $BIN_PATH
+Exec=$BIN_PATH
 Icon=$ICON_PATH
 Terminal=false
 Type=Application

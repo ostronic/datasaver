@@ -119,7 +119,7 @@ class DatasaverApp(QWidget):
         # Background image
         bg = QLabel(self)
         palette = QPalette()
-        pixmap = QPixmap("assets/datasaver.jpg").scaled(self.size(), Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
+        pixmap = QPixmap("/opt/datasaver/assets/datasaver.jpg").scaled(self.size(), Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
         palette.setBrush(QPalette.Window, QBrush(pixmap))
         self.setPalette(palette)
         bg.setPixmap(pixmap)
@@ -172,7 +172,7 @@ class DatasaverApp(QWidget):
         #self.setLayout(stacked)
 
         # Tray icon and menu
-        self.tray_icon = QSystemTrayIcon(QIcon("assets/datasaver.png"), self)
+        self.tray_icon = QSystemTrayIcon(QIcon("/opt/datasaver/assets/datasaver.png"), self)
         tray_menu = QMenu()
 
         on_action = QAction("Turn On", self)
