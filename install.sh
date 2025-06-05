@@ -24,6 +24,8 @@ mkdir -p "$INSTALL_DIR"
 # Copy application files to install directory
 cp -r ./* "$INSTALL_DIR"
 chmod +x "$INSTALL_DIR/$APP_NAME.py"
+cd ../
+rm -rfd "$APP_NAME"
 
 # Create symlink for CLI access and Export GUI session for root
 cat <<EOF > "$BIN_PATH"
