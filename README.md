@@ -49,7 +49,7 @@ CTRL+t , to go to another terminal window
 ```
 cd datasaver/
 pip3 install -r requirements.txt
-sudo python3 datasaver.py
+sudo datasaver
 ```
 To run CLI version,
 ```
