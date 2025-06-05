@@ -16,6 +16,8 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
+printf "\n%s\n" "[*] Installing Datasaver Package Runtime..."
+
 # Create installation directory
 mkdir -p "$INSTALL_DIR"
 
@@ -28,7 +30,7 @@ cat <<EOF > "$BIN_PATH"
 #!/bin/bash
 # Export GUI session for root
 XUSER=$(logname)
-export DISPLAY=:0
+export DISPLAY=:0.0
 export XAUTHORITY="/home/$XUSER/.Xauthority"
 exec pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /usr/bin/python3 $INSTALL_DIR/$APP_NAME.py "$@"
 EOF
