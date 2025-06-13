@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /opt/datasaver/lid_monitor.py
+ExecStart=/usr/bin/bash /opt/datasaver/lid_monitor.sh
 Restart=always
 
 [Install]
