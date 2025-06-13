@@ -130,6 +130,14 @@ class Datasaver:
                 pass
             os.remove(WATCHER_PID_FILE)
 
+    def log_mtu_cli(self, mtu):
+        '''
+        Log MTU valuse to a file(experimental): with this, you will know which MTU value last used is best.
+        '''
+        with open("/var/log/datasaver_mtu.log", "a") as log:
+            log.write(f"[CLI] MTU set to {mtu} on interface {', '.join(self.iface)}\n")
+
+
     def on(self):
         '''
          Enables the datasaver by setting MTU of active interfaces to a random lower value.
@@ -140,6 +148,7 @@ class Datasaver:
                 subprocess.run(['ip', 'link', 'set', i, 'down'])
                 subprocess.run(['ip', 'link', 'set', i, 'mtu', str(self.rand)])
                 subprocess.run(['ip', 'link', 'set', i, 'up'])
+            self.log_mtu_cli(self.rand)
             notify("Datasaver", f"Data saver ON. MTU set to {self.rand}")
             self.start_watcher()
         except Exception as e:

@@ -6,7 +6,7 @@ APP_NAME="datasaver"
 INSTALL_DIR="/opt/$APP_NAME"
 BIN_PATH="/usr/local/bin/$APP_NAME"
 LOG_PATH="/var/log/datasaver_mtu.log"
-ICON_PATH="/usr/share/icons/hicolor/128x128/apps/$APP_NAME.png"
+ICON_PATH="/usr/share/icons/hicolor/512x512/apps/$APP_NAME.png"
 DESKTOP_ENTRY="/usr/share/applications/$APP_NAME.desktop"
 POLKIT_FILE="/usr/share/polkit-1/actions/com.$APP_NAME.policy"
 
@@ -89,14 +89,14 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 $INSTALL_DIR/lid_monitor.py
+ExecStart=/usr/bin/bash $INSTALL_DIR/lid_monitor.sh
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
 EOF
 
-chmod +x "$INSTALL_DIR/lid_monitor.py"
+chmod +x "$INSTALL_DIR/lid_monitor.sh"
 systemctl daemon-reexec
 systemctl daemon-reload
 systemctl enable datasaver-lid.service
