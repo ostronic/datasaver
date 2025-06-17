@@ -1,3 +1,5 @@
+#!/usr/bin/ !python3
+from datetime import datetime, timezone
 from multiprocessing import Process
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QStackedLayout, QLabel, QSystemTrayIcon, QMenu, QMessageBox, QAction
 from PyQt5.QtGui import QIcon, QPalette, QBrush, QPixmap
@@ -14,6 +16,7 @@ import sys
 import time
 
 WATCHER_PID_FILE = "/tmp/datasaver_lid_watcher.pid"
+CURRENT_DATETIME = datetime.now(timezone.utc).astimezone()
 
 class Datasaver:
     def __init__(self):
@@ -21,6 +24,7 @@ class Datasaver:
         self.watcher_process = None
 
     def get_iface(self):
+        time.sleep(5)
         result = subprocess.run(['ip', '-details', 'link', 'show'], stdout=subprocess.PIPE, text=True)
         matches = re.finditer(r'^\d+: (\S+?):.*?<([^>]+)>', result.stdout, re.MULTILINE)
         interfaces = []
@@ -94,7 +98,7 @@ class Datasaver:
         Log MTU valuse to a file(experimental): with this, you will know which MTU value last used is best.
         '''
         with open("/var/log/datasaver_mtu.log", "a") as log:
-            log.write(f"MTU set to {mtu} on interface {', '.join(self.iface)}\n")
+            log.write(f"{CURRENT_DATETIME}MTU set to {mtu} on interface {', '.join(self.iface)}\n")
 
     def off(self):
         for i in self.iface:
@@ -192,12 +196,20 @@ class DatasaverApp(QWidget):
         tray_menu.addAction(show_ui_action)
 
         quit_action = QAction("Quit", self)
+        quit_action.triggered.connect(self.turn_off)
         quit_action.triggered.connect(QApplication.quit)
         tray_menu.addAction(quit_action)
 
         self.tray_icon.setContextMenu(tray_menu)
+        self.tray_icon.activated.connect(self.on_tray_icon_activated)
         self.tray_icon.setToolTip("Datasaver running")
         self.tray_icon.show()
+
+    def on_tray_icon_activated(self, reason):
+        if reason == QSystemTrayIcon.Trigger: #left-click
+            self.showNormal()
+            self.raise_()
+            self.activateWindow()
 
     def turn_on(self):
         try:
@@ -223,3 +235,4 @@ if __name__ == '__main__':
     window = DatasaverApp()
     window.show()
     sys.exit(app.exec_())
+    sys.exit(0)
