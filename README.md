@@ -69,7 +69,7 @@ sudo python3 datasaver-cli.py <on|off>
 | `install.sh`         | Post-install script for setup                |
 | `uninstall.sh`       | Uninstall script for package removal         |
 | `lid_monitor.py`     | Handles lid-close event monitoring           |
-| `lid_monitor.sh`     | HAndles lid-close event Monitoring in bash   |
+| `lid_monitor.sh`     | Handles lid-close event Monitoring in bash   |
 | `netck.py`           | Network check and MTU optimization logic     |
 | `datasaver-cli.py`   | Command-line interface for datasaver         |
 | `datasaver.py`       | GUI interface launcher                       |
