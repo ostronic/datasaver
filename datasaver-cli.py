@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from collections import deque
+from datetime import datetime, timezone
 from multiprocessing import Process
 
 import notify2
@@ -15,6 +16,8 @@ import time
 
 # File to save process ID of the watching process for lid open or close.
 WATCHER_PID_FILE = "/tmp/datasaver_lid_watcher.pid"
+CURRENT_DATETIME = datetime.now(timezone.utc).astimezone().ctime()
+CURRENT_DATETIME0 = datetime.now(timezone.utc).astimezone().tzinfo
 
 def check_sudo():
     '''
@@ -32,7 +35,7 @@ def Netfunc():
     ostronics = subprocess.call(['ping', 'google.com', '-c', '1'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     if ostronics != 0:
         print('CHECK YOUR NETWORK CONNECTION, VPN, OR CONNECT TO A WIFI NETWORK!!! \n TO START DATASAVER')
-        sys.exit(1)
+        sys.exit(2)
     elif ostronics == 0:
         pass
 
@@ -135,8 +138,7 @@ class Datasaver:
         Log MTU valuse to a file(experimental): with this, you will know which MTU value last used is best.
         '''
         with open("/var/log/datasaver_mtu.log", "a") as log:
-            log.write(f"[CLI] MTU set to {mtu} on interface {', '.join(self.iface)}\n")
-
+            log.write(f"[{CURRENT_DATETIME}-{CURRENT_DATETIME0}][CLI] MTU set to {mtu} on interface {', '.join(self.iface)}\n")
 
     def on(self):
         '''
@@ -153,8 +155,8 @@ class Datasaver:
             self.start_watcher()
         except Exception as e:
             pass
-            #print(f"Error: {e}")
-            sys.exit(2)
+            print(f"Error: {e}")
+            sys.exit(3)
 
     def off(self):
         '''
@@ -171,7 +173,7 @@ class Datasaver:
             self.stop_watcher()
         except Exception as e:
             print(f"Error: {e}")
-            sys.exit(3)
+            sys.exit(4)
 
 def main():
     '''
@@ -181,7 +183,7 @@ def main():
       Ensure the user is connected to a Network before the program is started.
     '''
     check_sudo()
-    Netfunc()
+    #Netfunc()
 
     if len(sys.argv) < 2:
         print("Usage: sudo python3 datasaver.py <on|off|--help>")
