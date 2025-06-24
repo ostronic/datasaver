@@ -21,7 +21,7 @@
 
 ## 📸 Preview
 
-![datasaver GUI screenshot](assets/datasaver.png)  
+![datasaver GUI screenshot](assets/datasaver.png)
 <sub>_Example of the datasaver GUI interface_</sub>
 
 ---
