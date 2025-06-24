@@ -22,7 +22,6 @@
 ## 📸 Preview
 
 ![datasaver GUI screenshot](assets/datasaver.png)
-![vokoscreenNG-2025-06-04_23-25-10 098](https://github.com/user-attachments/assets/51c17b0c-7710-42a5-b880-1481676a040b)
 
 <sub>_Example of the datasaver GUI interface_</sub>
 
