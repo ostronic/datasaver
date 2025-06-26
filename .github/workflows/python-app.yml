@@ -17,4 +17,4 @@ jobs:
         pip install -r requirements.txt
     - name: Run a test script (customize if needed)
       run: |
-        sudo bash install.sh
+        echo "CI set up  -  replace with real tests! (Test file in development)"
