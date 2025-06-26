@@ -1,4 +1,4 @@
-# 📶 datasaver
+# 📶 Datasaver Linux Utility
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
@@ -15,7 +15,7 @@
     * 'What a wonderful world' :)   zagzag.drank337@passinbox.com       *
     *********************************************************************
 
-**datasaver** is a lightweight Python-based Linux utility to reduce background data usage, optimize MTU/network settings, and improve laptop power efficiency. It includes both CLI and GUI components.
+**datasaver** is a lightweight Python-based Linux utility to reduce background data usage, optimize MTU/network settings, and improve laptop power efficiency. It includes system tray icon, lid-close detection; both CLI and GUI components.
 
 ---
 
@@ -30,15 +30,22 @@
 ## ⚡ Features
 
 - 🧠 Smart MTU/network tuning
-- 💻 GUI interface for easy management (Taskbar icon and management,Hide button)
-- 🔌 Lid-close detection with automatic actions
+- 💻 GUI interface for easy management (Taskbar icon and management,hide/show options button)
+- 🔌 Lid-close detection with automatic actions(Auto-reactivates on laptop lid-open events)
 - 🔧 CLI for scripting and automation(Allow logging /var/log/datasaver_mtu.log)
 - 📡 Optimized for low-data usage environments
+- 📦 Easy packaging: `.deb` and installer scripts included
 
 ---
 
 ## 🛠️ Installation
 
+Option 1:    Use `.deb` package (recommended)
+```bash
+sudo dpkg -i deb/datasaver_1.0_all.deb
+```
+
+Option 2:    Manual Installation
 Run the following commands to install `datasaver` on a Debian/Ubuntu-based system:
 
 ```bash
@@ -53,7 +60,7 @@ sudo rm -rfd datasaver/
 datasaver
 ```
 To run CLI version,
-```
+```bash
 cd /opt/datasaver
 sudo python3 datasaver-cli.py <on|off>
 ```
@@ -63,6 +70,7 @@ sudo python3 datasaver-cli.py <on|off>
 ## 📂 Project Structure
 | File/Folder          | Description                                  |
 | -------------------- | ---------------------------------------------|
+| `deb`                | Debian installation package folder and file  |
 | `assets/`            | GUI and icon resources                       |
 | `config`             | Configuration/ runtime files                 |
 | `datasaverIcon.html` | Desktop integration (icon & shortcut)        |
