@@ -16,8 +16,6 @@ import sys
 import time
 
 WATCHER_PID_FILE = "/tmp/datasaver_lid_watcher.pid"
-CURRENT_DATETIME = datetime.now(timezone.utc).astimezone().ctime()
-CURRENT_DATETIME0 = datetime.now(timezone.utc).astimezone().tzinfo
 
 class Datasaver:
     def __init__(self):
@@ -98,6 +96,9 @@ class Datasaver:
         '''
         Log MTU valuse to a file(experimental): with this, you will know which MTU value last used is best.
         '''
+        CURRENT_DATETIME = datetime.now(timezone.utc).astimezone().ctime()
+        CURRENT_DATETIME0 = datetime.now(timezone.utc).astimezone().tzinfo
+
         with open("/var/log/datasaver_mtu.log", "a") as log:
             log.write(f"[{CURRENT_DATETIME}-{CURRENT_DATETIME0}]MTU set to {mtu} on interface {', '.join(self.iface)}\n")
 
