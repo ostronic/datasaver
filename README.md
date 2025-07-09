@@ -21,7 +21,6 @@
 
 ## 📸 Preview
 
-![dat![vokoscreenNG-2025-06-04_23-25-10 098](https://github.com/user-attachments/assets/386e9235-e46d-40f1-a88e-f3e5984d0173)
 asaver GUI screenshot](assets/datasaver.png)
 
 <sub>_Example of the datasaver GUI interface_</sub>
@@ -83,8 +82,6 @@ No need to install or elevate privileges
 
 Portable: run from anywhere with ./Datasaver.AppImage
 
----
-
 ✅ Step-by-Step to Build .AppImage
 📦 1. Install AppImage Tools
 On Ubuntu/Debian:
@@ -94,8 +91,41 @@ sudo apt install appimagetool libfuse2
 ```
 Also make sure python3, pip, and pyqt5 are available.
 
+Run the following file:
+```bash
+sudo bash AppImage
+```
+This generates Datasaver-x86_64.AppImage
+
+📦 2. Build .rpm (for Fedora/RHEL/CentOS)
+.....
+
 ---
 
+```dir
+datasaver/
+├── AppImage
+├── datasaver.py
+├── datasaver-cli.py
+├── lid_monitor.py
+├── lid_monitor.sh
+├── netck.py
+├── requirements.txt
+├── install.sh
+├── uninstall.sh
+├── README.md
+├── assets/
+│   └── datasaver.png
+│   └── datasaver.jpg
+├── config/
+│   ├── datasaver.desktop
+|   ├── datasaver_app.desktop
+│   ├── datasaver-lid.service
+│   └── com.datasaver.policy
+├── deb/
+│   ├── datasaver_1.0_all.deb
+│   └── datasaver-deb.zip
+```
 ## 📂 Project Structure
 | File/Folder          | Description                                  |
 | -------------------- | ---------------------------------------------|
