@@ -1,0 +1,8 @@
+Package: datasaver
+Version: 1.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3, python3-pyqt5, python3-notify2, python3-pyudev
+Maintainer: ostronics <ostronics@proton.me>
+Description: A desktop app to toggle datasaver with MTU tweak + lid monitoring

@@ -1,0 +1,11 @@
+[Unit]
+Description=Monitor laptop lid and toggle datasaver
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/datasaver/lid_monitor.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
