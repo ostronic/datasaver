@@ -37,6 +37,14 @@ asaver GUI screenshot](assets/datasaver.png)
 - 📡 Optimized for low-data usage environments
 - 📦 Easy packaging: `.deb` and installer scripts included
 
+## 📦 Step 3: Cross-platform Packaging
+
+🧊 .AppImage (for all Linux distros)
+
+📦 .rpm (for Fedora, RHEL, CentOS)
+
+🌍 GitHub Actions to auto-build .deb and .rpm on push
+
 ---
 
 ## 🛠️ Installation
@@ -65,6 +73,26 @@ To run CLI version,
 cd /opt/datasaver
 sudo python3 datasaver-cli.py <on|off>
 ```
+---
+
+## 🧊 1. Build .AppImage (Universal Linux App)
+Why .AppImage?
+Works on almost any Linux distro
+
+No need to install or elevate privileges
+
+Portable: run from anywhere with ./Datasaver.AppImage
+
+---
+
+✅ Step-by-Step to Build .AppImage
+📦 1. Install AppImage Tools
+On Ubuntu/Debian:
+
+```bash
+sudo apt install appimagetool libfuse2
+```
+Also make sure python3, pip, and pyqt5 are available.
 
 ---
 
