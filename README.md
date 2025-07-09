@@ -121,22 +121,37 @@ datasaver/
 ├── deb/
 │   ├── datasaver_1.0_all.deb
 │   └── datasaver-deb.zip
+├── datasaver-deb/
+│   |   ├── DEBIAN/
+│   |   └── control
+│   ├── config/
+│   |   ├── datasaver.desktop
+│   |   ├── datasaver-lid.service
+│   |   └── com.datasaver.policy
+|   ├── assets/
+│   |   └── datasaver.png
+│   |   └── datasaver.jpg
+|   ├── opt/
+│   |   └── datasaver/
+│   ├── usr/
+│       └── share/
 ```
 ## 📂 Project Structure
-| File/Folder          | Description                                  |
-| -------------------- | ---------------------------------------------|
-| `deb`                | Debian installation package folder and file  |
-| `assets/`            | GUI and icon resources                       |
-| `config`             | Configuration/ runtime files                 |
-| `datasaverIcon.html` | Desktop integration (icon & shortcut)        |
-| `requirements.txt`   | Installs prerequisites for runtime           |
-| `install.sh`         | Post-install script for setup                |
-| `uninstall.sh`       | Uninstall script for package removal         |
-| `lid_monitor.py`     | Handles lid-close event monitoring           |
-| `lid_monitor.sh`     | Handles lid-close event Monitoring in bash   |
-| `netck.py`           | Network check and MTU optimization logic     |
-| `datasaver-cli.py`   | Command-line interface for datasaver         |
-| `datasaver.py`       | GUI interface launcher                       |
+| File/Folder          | Description                                      |
+| -------------------- | -------------------------------------------------|
+| `deb`                | Debian installation package folder and file      |
+| `datasaver-deb`      | Debian build package folder and file for action  |
+| `assets/`            | GUI and icon resources                           |
+| `config`             | Configuration/ runtime files                     |
+| `datasaverIcon.html` | Desktop integration (icon & shortcut)            |
+| `requirements.txt`   | Installs prerequisites for runtime               |
+| `install.sh`         | Post-install script for setup                    |
+| `uninstall.sh`       | Uninstall script for package removal             |
+| `lid_monitor.py`     | Handles lid-close event monitoring               |
+| `lid_monitor.sh`     | Handles lid-close event Monitoring in bash       |
+| `netck.py`           | Network check and MTU optimization logic         |
+| `datasaver-cli.py`   | Command-line interface for datasaver             |
+| `datasaver.py`       | GUI interface launcher                           |
 
 ---
 
