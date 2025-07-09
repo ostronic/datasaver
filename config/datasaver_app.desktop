@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Datasaver
+Exec=/usr/bin/python3 /opt/datasaver/datasaver.py
+Icon=/usr/share/icons/hicolor/512x512/apps/datasaver.png
+Terminal=false
+Type=Application
+Categories=Network;Utility;
+StartupNotify=true

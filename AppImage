@@ -1,0 +1,37 @@
+#!/bin/env bash
+
+## Portable: run from anywhere with ./Datasaver.AppImage
+
+set -e 
+# Atep-y-Step to Bild .AppImage
+# ---------- Install AppImage Tools ----------
+# Make sure python3, pip, and pyqt5 are avialiable
+sudo apt install appimagetool libfuse2
+
+#---------- Create Directory Layout -------
+mkdir -p AppDir/usr/bin
+mkdir -p AppDir/usr/share/applications
+mkdir -p AppDir/usr/share/icons/hicolor/512x512/apps
+
+#---------- Move Files In ----------
+cp datasaver.py AppDir/usr/bin/
+cp assets/datasaver.png AppDir/usr/share/icons/hicolor/512x512/apps/
+cp config/datasaver_app.desktop AppDir/usr/share/applications/
+
+#---------- Add AppRun Launcher ----------
+cat <<EOF > "AppDir/AppRun"
+#!/bin/bash
+HERE="$(dirname "$(readlink -f "$0")")"
+exec "$HERE/usr/bin/datasaver.py"
+EOF
+
+#---------- Make it Executable----------
+chmod +x AppDir/AppRun
+
+#---------- Install linuxdeploy and run ----------
+linuxdeploy --appdir AppDir --output appimage
+
+# ---------- This generates Datasaver-x86_64.AppImage
+appmagetool AppDir
+
+exit 0

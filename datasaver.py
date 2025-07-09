@@ -22,6 +22,7 @@ class Datasaver:
         self.iface = self.get_iface()
         self.watcher_process = None
 
+
     def get_iface(self):
         time.sleep(5)
         result = subprocess.run(['ip', '-details', 'link', 'show'], stdout=subprocess.PIPE, text=True)
@@ -81,8 +82,7 @@ class Datasaver:
             os.remove(WATCHER_PID_FILE)
 
     def on(self):
-        # Rotate MTU value upon click of the button
-        self.rand = random.randrange(1000, 1400)
+        self.rand = random.randint(900, 1400)
         print(f"[+] Turning datasaver ON with MTU {self.rand}")
         for i in self.iface:
             subprocess.run(['ip', 'link', 'set', i, 'down'])
@@ -96,8 +96,9 @@ class Datasaver:
         '''
         Log MTU valuse to a file(experimental): with this, you will know which MTU value last used is best.
         '''
-        CURRENT_DATETIME = datetime.now(timezone.utc).astimezone().ctime()
-        CURRENT_DATETIME0 = datetime.now(timezone.utc).astimezone().tzinfo
+        now = datetime.now(timezone.utc).astimezone()
+        CURRENT_DATETIME = now.ctime()
+        CURRENT_DATETIME0 = now.tzinfo
 
         with open("/var/log/datasaver_mtu.log", "a") as log:
             log.write(f"[{CURRENT_DATETIME}-{CURRENT_DATETIME0}]MTU set to {mtu} on interface {', '.join(self.iface)}\n")
@@ -108,7 +109,7 @@ class Datasaver:
             subprocess.run(['ip', 'link', 'set', i, 'mtu', '1500'])
             subprocess.run(['ip', 'link', 'set', i, 'up'])
         subprocess.run(['systemctl', 'restart', 'NetworkManager', 'wpa_supplicant.service'])
-        self.notify("Datasaver", "Data saver OFF. MTU reset to 1500")
+        self.notify("Datasaver", f"Data saver OFF. MTU reset to 1500")
         self.stop_watcher()
 
 class DatasaverApp(QWidget):
@@ -216,7 +217,6 @@ class DatasaverApp(QWidget):
     def turn_on(self):
         try:
             self.ds.on()
-            #self.label.setText(f'Datasaver Status: ON')
             self.label.setText(f"Datasaver is ON with MTU {self.ds.rand}")
             self.on_button.setText("Applying...")
             QApplication.processEvents()
